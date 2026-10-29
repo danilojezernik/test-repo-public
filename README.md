@@ -25,3 +25,5 @@ Smoke izdaj: po v1.0.0.
 Smoke izdaj: po v1.0.2.
 
 smoke posodobitve A
+
+smoke posodobitve B
