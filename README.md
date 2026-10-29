@@ -19,3 +19,5 @@ py -3.12 -m venv .venv
 ```
 
 Podatki in nastavitve so v `%APPDATA%\pavze-test`. Navodila za razvoj: `DESKTOP.md`.
+
+Smoke izdaj: po v1.0.0.
