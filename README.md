@@ -29,3 +29,5 @@ smoke posodobitve A
 smoke posodobitve B
 
 smoke posodobitve A
+
+smoke posodobitve B
