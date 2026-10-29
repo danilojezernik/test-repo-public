@@ -1,0 +1,47 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# gradnja (PyInstaller, namestitev)
+build/
+dist/
+*.spec
+
+# skrivnosti (en vir: studio.security.secrets.IGNORE_LINES) in delovne datoteke Studia
+.env
+.env.*
+!.env.template
+!.env.example
+!.env.sample
+demo-secrets.json
+secrets.json
+credentials*.json
+service-account*.json
+client_secret*.json
+google-services.json
+GoogleService-Info.plist
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.ppk
+*.kdbx
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+!*.pub
+local.properties
+.netrc
+_netrc
+.git-credentials
+.pgpass
+.htpasswd
+.envrc
+.studio/

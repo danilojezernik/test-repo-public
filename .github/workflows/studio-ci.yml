@@ -1,0 +1,30 @@
+# Generiral AI Development Studio (studio/ci_workflow.py) — ne urejaj ročno.
+# Ukazi so enaki lokalnim preverjanjem Studia (profil predloge).
+name: studio-ci
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+permissions:
+  contents: read
+jobs:
+  desktop:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: "install"
+        run: "python -m pip install -e .[dev]"
+      - name: "lint"
+        run: "python -m ruff check ."
+      - name: "test"
+        run: "python -m pytest -q"
+      - name: "smoke"
+        run: "python -m pavzetest --smoke"

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pavzetest"
+description = "pavze-test — namizna aplikacija (NiceGUI + pywebview)"
+requires-python = ">=3.11"
+dynamic = ["version"]
+dependencies = [
+    "nicegui>=3.14,<4",
+    "pywebview>=6.2,<7",
+    "sqlmodel>=0.0.39",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "ruff>=0.6"]
+build = ["pyinstaller>=6.10"]
+
+[project.scripts]
+pavzetest = "pavzetest.__main__:main"
+
+[tool.setuptools.dynamic]
+# različico vpiše Studio ob gradnji izdaje (paket _studio/ je Studiov)
+version = { attr = "pavzetest._studio.version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "I"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "-p nicegui.testing.user_plugin"
+main_file = "src/pavzetest/__main__.py"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.studio]
+# Gradnja namestitve (gumb „Zgradi namestitev" v Studiu) — oboje izbirno:
+# ime = "Moja aplikacija"                              # ime v meniju Start in namestitvi; privzeto APP_NAME
+# ikona = "src/pavzetest/viri/ikona.ico"     # ikona aplikacije in namestitve (.ico)
